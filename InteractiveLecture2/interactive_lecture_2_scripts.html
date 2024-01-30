@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>CSU Global ITS410 Interactive Lecture 2 Scripts</title>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">
+<pre># Creates or deletes and recreates the test database.</font><br />
+<font color="#0033b3">DROP DATABASE IF EXISTS </font><font color="#000000">test</font><font color="#080808">;</font><br />
+<font color="#0033b3">CREATE DATABASE </font><font color="#000000">test</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># Defines the test database as the schema.</font><br />
+<font color="#0033b3">USE </font><font color="#000000">test</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># Deletes the tblItems table.</font><br />
+<font color="#0033b3">DROP TABLE IF EXISTS </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<br />
+<font color="#088F8F">-- 2.1 Query Numeric Data from MySQL Tables<br />
+<br />
+# Whenever you insert a record this table, the item_id field will increase by one</font><br />
+<font color="#0033b3">create table </font><font color="#000000">tblItems</font><br />
+<font color="#080808">(<br />
+    </font><font color="#871094">item_id </font><font color="#0033b3">int auto_increment primary key</font><font color="#080808">,<br />
+    </font><font color="#871094">item_text </font><font color="#0033b3">varchar</font><font color="#080808">(</font><font color="#1750eb">50</font><font color="#080808">)<br />
+);</font><br />
+<br />
+<font color="#088F8F"># Describes the table created by the above statement.</font><br />
+<font color="#0033b3">DESCRIBE </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># Next, try the following insert statement.</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">item_text</font><font color="#080808">)</font><br />
+<font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'laptop'</font><font color="#080808">),(</font><font color="#067d17">'desktop'</font><font color="#080808">),(</font><font color="#067d17">'server'</font><font color="#080808">),(</font><font color="#067d17">'fibreChannelcard'</font><font color="#080808">);</font><br />
+<br />
+<font color="#088F8F"># Select the data from tblItems.</font><br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">test</font><font color="#080808">.</font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># You can override the next sequential value so that it will not be five. <br />
+# Try running the following insert statement to change the sequence values.</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">item_id</font><font color="#080808">, </font><font color="#871094">item_text</font><font color="#080808">)</font><br />
+<font color="#0033b3">values</font><font color="#080808">(</font><font color="#1750eb">13</font><font color="#080808">,</font><font color="#067d17">'docking station'</font><font color="#080808">);</font><br />
+<br />
+<font color="#088F8F"># Select the data again and note the next sequence value for item_id is 13, not five.</font><br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">test</font><font color="#080808">.</font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<font color="#088F8F"># The next sequence value will be 14.<br />
+<br />
+# Delete the table for the next exercise.</font><br />
+<font color="#0033b3">DROP TABLE IF EXISTS </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># INT(6) will return the integer value of the field <br />
+# and that integer value will be formatted in any display <br />
+# to occupy six spaces with a leading pad character if necessary.</font><br />
+<font color="#0033b3">create table </font><font color="#000000">tblItems</font><br />
+<font color="#080808">(</font><br />
+    <font color="#871094">item_id </font><font color="#0033b3">int auto_increment primary key</font><font color="#080808">,</font><br />
+    <font color="#871094">int_1 </font><font color="#0033b3">int</font><font color="#080808">(</font><font color="#1750eb">2</font><font color="#080808">) </font><font color="#0033b3">zerofill</font><font color="#080808">,</font><br />
+    <font color="#871094">int_2 </font><font color="#0033b3">int</font><font color="#080808">(</font><font color="#1750eb">4</font><font color="#080808">) </font><font color="#0033b3">zerofill</font><font color="#080808">,</font><br />
+    <font color="#871094">item_text </font><font color="#0033b3">varchar</font><font color="#080808">(</font><font color="#1750eb">255</font><font color="#080808">)<br />
+);</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">int_1</font><font color="#080808">, </font><font color="#871094">int_2</font><font color="#080808">, </font><font color="#871094">item_text</font><font color="#080808">)</font><br />
+<font color="#0033b3">values</font><font color="#080808">(</font><font color="#1750eb">3</font><font color="#080808">, </font><font color="#1750eb">14</font><font color="#080808">, </font><font color="#067d17">'docking station'</font><font color="#080808">);</font><br />
+<font color="#088F8F">#  NOTE: zerofill is depreciated, learn how to use SELECT LPAD(str, len, padstr) instead.</font><br />
+<br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">test</font><font color="#080808">.</font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<br />
+<font color="#088F8F">-- 2.2 Date and Time Types<br />
+<br />
+# Delete the table for the next exercise.</font><br />
+<font color="#0033b3">DROP TABLE IF EXISTS </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#0033b3">create table </font><font color="#000000">tblItems</font><br />
+<font color="#080808">(</font><font color="#871094">datetime_now </font><font color="#0033b3">datetime</font><font color="#080808">);</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">datetime_now</font><font color="#080808">)</font><br />
+<font color="#0033b3">values</font><font color="#080808">(</font><font color="#00627a">NOW</font><font color="#080808">());</font><br />
+<br />
+<font color="#088F8F"># Run the following statements to see various Date and Time Types.</font><br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#0033b3">select </font><font color="#00627a">date</font><font color="#080808">(</font><font color="#871094">datetime_now</font><font color="#080808">) </font><font color="#0033b3">as </font><font color="#000000">'DATE' </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#0033b3">select </font><font color="#871094">datetime_now </font><font color="#0033b3">as </font><font color="#000000">'DATETIME' </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#0033b3">select </font><font color="#00627a">time</font><font color="#080808">(</font><font color="#871094">datetime_now</font><font color="#080808">) </font><font color="#0033b3">as </font><font color="#000000">'TIME' </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#0033b3">select </font><font color="#00627a">year</font><font color="#080808">(</font><font color="#871094">datetime_now</font><font color="#080808">) </font><font color="#0033b3">as </font><font color="#000000">'YEAR' </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#0033b3">select </font><font color="#00627a">timestamp</font><font color="#080808">(</font><font color="#871094">datetime_now</font><font color="#080808">) </font><font color="#0033b3">as </font><font color="#000000">'TIMESTAMP' </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<br />
+<font color="#088F8F">-- 2.3 String Types<br />
+<br />
+# Delete the table for the next exercise.</font><br />
+<font color="#0033b3">DROP TABLE IF EXISTS </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F">-- The MySQL CHAR Data Type<br />
+<br />
+# The following is an example of a MySQL SQL statement using the CHAR data type.</font><br />
+<font color="#0033b3">create table </font><font color="#000000">tblItems</font><br />
+<font color="#080808">(<br />
+    </font><font color="#871094">x </font><font color="#0033b3">char</font><font color="#080808">(</font><font color="#1750eb">3</font><font color="#080808">)<br />
+);</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">x</font><font color="#080808">)</font><br />
+<font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'yes'</font><font color="#080808">), (</font><font color="#067d17">'no'</font><font color="#080808">);</font><br />
+<br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># You use the LENGTH function to get the length of a character string.</font><br />
+<font color="#0033b3">select </font><font color="#871094">x</font><font color="#080808">, </font><font color="#00627a">length</font><font color="#080808">(</font><font color="#871094">x</font><font color="#080808">) </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># The following statement will add ' Y' to the table and ignore the trailing space. </font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">x</font><font color="#080808">)</font><br />
+<font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">' Y '</font><font color="#080808">);</font><br />
+<font color="#0033b3">select </font><font color="#871094">x</font><font color="#080808">, </font><font color="#00627a">length</font><font color="#080808">(</font><font color="#871094">x</font><font color="#080808">) </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<font color="#088F8F"># MySQL by default does not consider trailing spaces when comparing CHAR strings. <br />
+<br />
+# The following SQL query will not return any results. Do you know why?</font><br />
+<font color="#0033b3">select  </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><br />
+<font color="#0033b3">where </font><font color="#871094">x </font><font color="#080808">= </font><font color="#067d17">'Y'</font><font color="#080808">;<br />
+    </font><br />
+<br />
+<font color="#088F8F"># Can you fix this query using LIKE to make the query return a result?</font><br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><br />
+<font color="#0033b3">where </font><font color="#871094">x </font><font color="#0033b3">like </font><font color="#067d17">' Y'</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># This statement will describe the tblItems columns.<br />
+# Notice x allows null values, and the Key for x shows blank.</font><br />
+<font color="#0033b3">DESCRIBE </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># If your CHAR column has a UNIQUE index, <br />
+# and if you attempt to insert a value that is different from an existing value <br />
+# in the number of trailing spaces,<br />
+# then MySQL will reject your insert attempt <br />
+# and consider the insertion attempt as an attempt to insert a duplicate-key error.</font><br />
+<font color="#0033b3">create unique index </font><font color="#080808">uidx_x </font><font color="#0033b3">on </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">x</font><font color="#080808">);</font><br />
+<font color="#0033b3">DESCRIBE </font><font color="#000000">tblItems</font><font color="#080808">; </font><font color="#088F8F">-- Note the UNI in the Key column.</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">x</font><font color="#080808">) </font><font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'N'</font><font color="#080808">);</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">x</font><font color="#080808">) </font><font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'N '</font><font color="#080808">);  </font><font color="#088F8F">-- this statement will fail due to the unique index</font><br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F">-- The MySQL VARCHAR Data Type<br />
+<br />
+# Delete the table for the next exercise.</font><br />
+<font color="#0033b3">DROP TABLE IF EXISTS </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># The maximum number of bytes that MySQL can store in a VARCHAR column is 65,535, <br />
+# and that is 21845 characters for utf8mb3 character set <br />
+# and 16383 characters for the utf8mb4 character set.<br />
+# The storage for a VARCHAR begins with a prefix of a one or two byte entity <br />
+# that represents the length of the string. <br />
+# These bytes are deducted from the maximum available storage capacity of your string.<br />
+# The maximum length of a varying length string is further constrained by the table row size. <br />
+# Note that the total length of all columns must be less than 65,535 bytes. <br />
+# To demonstrate this, look at the following examples:</font><br />
+<font color="#0033b3">create table </font><font color="#000000">tblItems</font><br />
+<font color="#080808">(<br />
+    </font><font color="#871094">string1 </font><font color="#0033b3">varchar</font><font color="#080808">(</font><font color="#1750eb">8191</font><font color="#080808">) </font><font color="#0033b3">not null</font><font color="#080808">,<br />
+    </font><font color="#871094">string2 </font><font color="#0033b3">varchar</font><font color="#080808">(</font><font color="#1750eb">8191</font><font color="#080808">) </font><font color="#0033b3">not null</font><br />
+<font color="#080808">) ;</font><br />
+<br />
+<font color="#088F8F"># In the preceding create table statement, the row length is 65535 bytes. <br />
+# including length prefixes, string1 and string2 consume a row length of exactly 16383 utf8mb4 characters.<br />
+<br />
+# Delete the table for the next exercise.</font><br />
+<font color="#0033b3">DROP TABLE IF EXISTS </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># The following create table attempt will fail.</font><br />
+<font color="#0033b3">create table </font><font color="#000000">tblItems</font><br />
+<font color="#080808">(<br />
+    </font><font color="#871094">string1 </font><font color="#0033b3">varchar</font><font color="#080808">(</font><font color="#1750eb">8191</font><font color="#080808">) </font><font color="#0033b3">not null</font><font color="#080808">,<br />
+    </font><font color="#871094">string2 </font><font color="#0033b3">varchar</font><font color="#080808">(</font><font color="#1750eb">8192</font><font color="#080808">) </font><font color="#0033b3">not null</font><br />
+<font color="#080808">) ;</font><br />
+<br />
+<font color="#088F8F"># Delete the table for the next exercise.</font><br />
+<font color="#0033b3">DROP TABLE IF EXISTS </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># An error will also be thrown if you attempt to insert a string into a VARCHAR column <br />
+# where the string length is greater than the space allocated for the VARCHAR.</font><br />
+<font color="#0033b3">create table </font><font color="#000000">tblItems</font><br />
+<font color="#080808">(<br />
+    </font><font color="#871094">id </font><font color="#0033b3">int primary key auto_increment</font><font color="#080808">,<br />
+    </font><font color="#871094">string1 </font><font color="#0033b3">varchar</font><font color="#080808">(</font><font color="#1750eb">5</font><font color="#080808">) <br />
+) ;</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">string1</font><font color="#080808">) </font><font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'minion'</font><font color="#080808">);</font><br />
+<font color="#0033b3">select </font><font color="#080808">* </font><font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># MySQL does retain trailing spaces when it inserts or selects VARCHAR values.</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">string1</font><font color="#080808">) </font><font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'onion'</font><font color="#080808">);</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">string1</font><font color="#080808">) </font><font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'ion  '</font><font color="#080808">);</font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">string1</font><font color="#080808">) </font><font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'on   '</font><font color="#080808">);</font><br />
+<font color="#0033b3">select </font><font color="#871094">id</font><font color="#080808">, </font><font color="#871094">string1</font><font color="#080808">, </font><font color="#00627a">length</font><font color="#080808">(</font><font color="#871094">string1</font><font color="#080808">)</font><br />
+<font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># MySQL will truncate trailing spaces when inserting a VARCHAR to make the value fit into a confined space. </font><br />
+<font color="#0033b3">insert into </font><font color="#000000">tblItems</font><font color="#080808">(</font><font color="#871094">string1</font><font color="#080808">) </font><font color="#0033b3">values</font><font color="#080808">(</font><font color="#067d17">'min           '</font><font color="#080808">);</font><br />
+<font color="#0033b3">select </font><font color="#871094">id</font><font color="#080808">, </font><font color="#871094">string1</font><font color="#080808">, </font><font color="#00627a">length</font><font color="#080808">(</font><font color="#871094">string1</font><font color="#080808">)</font><br />
+<font color="#0033b3">from </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<br />
+<font color="#088F8F">-- 2.4 Retrieve Data<br />
+<br />
+# There are five different statements associated with the Select Statement.<br />
+<br />
+# SELECT and FROM:<br />
+# This statement selects all data from the id and string1 columns of tblItems.</font><br />
+<font color="#0033b3">SELECT </font><font color="#871094">id</font><font color="#080808">, </font><font color="#871094">string1 </font><font color="#0033b3">FROM </font><font color="#000000">tblItems</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># WHERE<br />
+# This statement selects all data from the string1 column of tblItems that begin with 'o'.</font><br />
+<font color="#0033b3">SELECT </font><font color="#871094">string1 </font><font color="#0033b3">FROM </font><font color="#000000">tblItems</font><br />
+<font color="#0033b3">WHERE </font><font color="#871094">string1 </font><font color="#0033b3">REGEXP </font><font color="#067d17">'</font><font color="#067d17"><span style="background: #edfced">^o</span></font><font color="#067d17">'</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># ORDER BY<br />
+# This statement selects all data from the id and string1 columns of tblItems <br />
+# and orders it in alphabetic order from string1.</font><br />
+<font color="#0033b3">SELECT </font><font color="#871094">id</font><font color="#080808">, </font><font color="#871094">string1 </font><font color="#0033b3">FROM </font><font color="#000000">tblItems</font><br />
+<font color="#0033b3">ORDER BY </font><font color="#871094">string1</font><font color="#080808">;</font><br />
+<br />
+<font color="#088F8F"># LIMIT<br />
+# This statement selects the first three lines from id and string1 columns of tblItems</font><br />
+<font color="#0033b3">SELECT </font><font color="#871094">id</font><font color="#080808">, </font><font color="#871094">string1 </font><font color="#0033b3">FROM </font><font color="#000000">tblItems</font><br />
+<font color="#0033b3">LIMIT </font><font color="#1750eb">3</font><font color="#080808">;</font><br />
+</pre>
+</body>
+</html>
