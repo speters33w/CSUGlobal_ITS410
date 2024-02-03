@@ -49,7 +49,7 @@ A query to do this could be:
 SELECT sum(quantityOrdered * priceEach) as total, 
         year(orderDate) as Year
     FROM orders
-INNER JOIN orderDetails
+INNER JOIN orderdetails
     USING (orderNumber)
     WHERE status = 'Shipped'
 GROUP BY year(orderDate);
@@ -65,7 +65,7 @@ Consider the following query to find the number of items and the total amount fo
 */
 SELECT sum(quantityOrdered * priceEach) as total, 
        sum(quantityOrdered) as itemsCount, orderNumber
-    FROM  orderDetails
+    FROM  orderdetails
 GROUP BY orderNumber;
 
 /*
@@ -75,7 +75,7 @@ A query to do this could be:
 SELECT sum(quantityOrdered * priceEach) as total, 
        sum(quantityOrdered) as itemsCount, 
        orderNumber
-    FROM orderDetails
+    FROM orderdetails
 GROUP BY  orderNumber
     HAVING sum(quantityOrdered * priceEach) >= 2500;
     
@@ -87,7 +87,7 @@ A query to do this could be:
 SELECT sum(quantityOrdered * priceEach) as total,
        sum(quantityOrdered) as itemsCount,
        orderNumber
-    FROM orderDetails
+    FROM orderdetails
 GROUP BY orderNumber
     HAVING sum(quantityOrdered * priceEach) >= 2500
     AND sum(quantityOrdered) >= 435;
@@ -167,12 +167,12 @@ SELECT customerName FROM customers
 /*
 Suppose you want a list of the maximum, minimum, and average number 
 of items in an order. 
-Such a query makes use of the orderDetails table
+Such a query makes use of the orderdetails table
 */
 SELECT max(items), min(items), floor(avg(items))
     FROM
 	(SELECT orderNumber, count(orderNumber) AS items
-         FROM orderDetails
+         FROM orderdetails
 	GROUP BY orderNumber) as lineItems;
     
 /*
@@ -190,10 +190,10 @@ SELECT productName, buyPrice FROM products p
 /*
 Suppose you want a list of orders with total values 
 between $25000 and $30000. 
-To formulate this query, you will need the orders and orderDetails tables.
+To formulate this query, you will need the orders and orderdetails tables.
 */
 SELECT orderNumber, sum(priceEach * quantityOrdered) as total
-    FROM  orderDetails od
+    FROM  orderdetails od
 INNER JOIN orders o
     USING (orderNumber)
 GROUP BY orderNumber
@@ -207,7 +207,7 @@ Such a query will require the use of a correlated subquery.
 SELECT customerNumber, customerName FROM customers
     WHERE EXISTS
     (SELECT orderNumber, sum(priceEach * quantityOrdered) as total
-        FROM  orderDetails
+        FROM  orderdetails
     INNER JOIN orders o
         USING (orderNumber)
         WHERE customerNumber = customers.customerNumber

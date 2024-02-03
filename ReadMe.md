@@ -6,7 +6,7 @@ This repository contains my solutions while taking ITS410 Database Management fr
 
 Some of the Interactive Lecture scripts in this repository require using the October, 2023 version of the [classiccars](https://www.mysqltutorial.org/wp-content/uploads/2023/10/mysqlsampledatabase.zip) database from [mysqltutorial.org](https://www.mysqltutorial.org/).
 
-![classicmodels](./InteractiveLecture5/classicmodels.png)
+![classicmodels](./databases/classicmodels.png)
 
 Module 1 Getting Started with MySQL Database
 
@@ -16,9 +16,9 @@ Module 3 Retrieve Data from Multiple Tables
 
 Module 4 Insert, Update and Delete Table
 
-[Module 5](./InteractiveLecture5/interactive_lecture_5_scripts.sql) Grouping and Summarizing Data
+[Module 5](./InteractiveLecture5/interactive_lecture_5_notes.md) Grouping and Summarizing Data
 
-Module 6 Stored Procedures and Functions
+[Module 6](./InteractiveLecture6/interactive_lecture_6_notes.md) Stored Procedures and Functions
 
 Module 7 Database Tuning and Security
 
@@ -38,11 +38,11 @@ The Critical Thinking scripts in this repository require using the CSU Global 20
 
 [Module 3](./CriticalThinking3/Module_3_Critical_Thinking.md) Using Joins
 
-[Module 4](././CriticalThinking4/Module_4_Critical_Thinking.md) Modifying Tables
+[Module 4](./CriticalThinking4/Module_4_Critical_Thinking.md) Modifying Tables
 
-[Module 5](././CriticalThinking5/Module_5_Critical_Thinking.md) Writing Queries
+[Module 5](./CriticalThinking5/Module_5_Critical_Thinking.md) Writing Queries
 
-Module 6 Stored Procedures
+[Module 6](./CriticalThinking6/Module_6_Critical_Thinking.md) Stored Procedures
 
 Portfolio Project  (Part 2, Queries)
 
