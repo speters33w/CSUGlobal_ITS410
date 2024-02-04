@@ -17,8 +17,6 @@ The *GROUP BY* clause is used to summarize a query result set  by values of colu
 The GROUP BY clause always follows a FROM clause, and if the query  has a WHERE clause, then it must follow the WHERE clause. If an  aggregate function is used in a query, then all of the columns in the  SELECT clause must appear in the GROUP BY clause. The general format of a GROUP BY clause is:
 
 ```mysql
-USE classicmodels;
-
 SELECT col_1, col_2, ..., col_n, aggregate_function(col_i)
 FROM table
 WHERE where_conditions
@@ -45,8 +43,6 @@ GROUP BY status;
 Suppose you want to know the total amount of the orders by status. A query to do this could be:
 
 ```mysql
-USE classicmodels;
-
 SELECT sum(quantityOrdered * priceEach) as amnt, status
 FROM orders
 INNER JOIN  orderdetails
@@ -57,8 +53,6 @@ GROUP BY status;
 Another query to do this could be:
 
 ```mysql
-USE classicmodels;
-
 SELECT sum(od.quantityOrdered * od.priceEach) AS amnt, o.status 
 FROM orders o
 INNER JOIN orderdetails od ON o.orderNumber = od.orderNumber
@@ -68,8 +62,6 @@ GROUP BY o.status;
 Suppose you want to know the total amount for each order number. A query to do this could be:
 
 ```mysql
-USE classicmodels;
-
 SELECT sum(quantityOrdered * priceEach) as total, orderNumber
 FROM orderdetails
 GROUP BY orderNumber;
@@ -78,8 +70,6 @@ GROUP BY orderNumber;
 Suppose you want the total sales for each year. A query to do this could be:
 
 ```mysql
-USE classicmodels;
-
 SELECT sum(quantityOrdered * priceEach) as total, year(orderDate) as Year
 FROM orders
 INNER JOIN orderdetails
@@ -111,8 +101,6 @@ GROUP BY orderNumber;
 Suppose you want a list of the orders that have total sales greater than $2,500.00. A query to do this could be:
 
 ```mysql
-USE classicmodels;
-
 SELECT sum(quantityOrdered * priceEach) as total, sum(quantityOrdered) as itemsCount, orderNumber
 FROM orderdetails
 GROUP BY  orderNumber
@@ -122,8 +110,6 @@ HAVING sum(quantityOrdered * priceEach) >= 2500;
 Suppose you want a list of the orders that have total sales greater than $2500.00 and with an item count of more  than 435. A query to do this could be:
 
 ```mysql
-USE classicmodels;
-
 SELECT sum(quantityOrdered * priceEach) as total, sum(quantityOrdered) as itemsCount, orderNumber
 FROM orderdetails
 GROUP BY orderNumber
@@ -134,8 +120,6 @@ AND sum(quantityOrdered) >= 435;
 Suppose you want a list of all of the  orders that have shipped with total sales of more than $1,700. A query  to do this could be:
 
 ```mysql
-USE classicmodels;
-
 SELECT od.ordernumber, status, sum(priceeach * quantityOrdered) AS total
 FROM orderdetails od
 INNER JOIN orders o ON o.ordernumber = od.ordernumber
@@ -185,6 +169,8 @@ Now consider the employees table from the classicmodels database.
 Suppose you want to build a list of the first and last names of employees and customers. The following query can do this.
 
 ```mysql
+USE classicmodels;
+
 SELECT firstName, lastName 
 FROM employees
 UNION
@@ -215,6 +201,8 @@ A subquery is a query within a query. You can place subqueries into the followin
 The following query formulation uses a subquery to generate this list.
 
 ```mysql
+USE classicmodels;
+
 SELECT concat(firstName, ' ', lastName) AS fullName 
 FROM employees
     WHERE officecode IN
