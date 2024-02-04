@@ -2,7 +2,7 @@
 
 ### **Writing Queries**
 
-Using the [My Guitar Shop database](../CriticalThinking1/1-1_create_my_guitar_shop.sql) you installed in Module 1, develop the following queries.
+Using the [my_guitar_shop database](../CriticalThinking1/1-1_create_my_guitar_shop.sql) you installed in Module 1, develop the following queries.
 
 1. Write a [SELECT statement](./5-1_SELECT_count_ALL_sum_tax_amount_FROM_orders.sql) that returns these columns:
 

@@ -1,6 +1,6 @@
 A full tutorial using the [classicmodels](../databases/classicmodels.sql) database is available at [MySQLTutorial.org](https://www.mysqltutorial.org/mysql-stored-procedure/).
 
-How to Create Stored Procedures and Functions is covered in Murach, J. (2019). Murach’s MySQL (3rd ed. pp. 445-475). Mike Murach & Associates.
+How to Create Stored Procedures and Functions is covered in Murach, J. (2019). *Murach’s MySQL* (3rd ed. pp. 445-475). Mike Murach & Associates.
 
 ## 6.1 What is Stored Procedure?
 

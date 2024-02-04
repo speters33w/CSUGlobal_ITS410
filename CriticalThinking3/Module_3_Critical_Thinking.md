@@ -2,7 +2,7 @@
 
 ### **Using Joins**
 
-Using the My Guitar Shop database you installed in Module 1, develop the following queries.
+Using the [my_guitar_shop database](../CriticalThinking1/1-1_create_my_guitar_shop.sql) you installed in Module 1, develop the following queries.
 
 1. Write a [SELECT statement](./3-1_SELECT_category_name_product_name_list_price.sql) that joins the Categories table to the  Products table and returns these columns: category_name, product_name,  list_price.
 

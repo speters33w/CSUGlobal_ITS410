@@ -2,7 +2,7 @@
 
 ### **Modifying Tables**
 
-Using the [My Guitar Shop database](../CriticalThinking1/1-1_create_my_guitar_shop.sql) you installed in Module 1, develop the following queries.
+Using the [my_guitar_shop database](../CriticalThinking1/1-1_create_my_guitar_shop.sql) you installed in Module 1, develop the following queries.
 
 To test whether a table has been modified correctly as you do these  exercises, you can write and run an appropriate SELECT statement.
 
