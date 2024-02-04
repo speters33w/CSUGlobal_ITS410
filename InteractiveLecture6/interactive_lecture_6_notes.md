@@ -1,5 +1,7 @@
 A full tutorial using the [classicmodels](../databases/classicmodels.sql) database is available at [MySQLTutorial.org](https://www.mysqltutorial.org/mysql-stored-procedure/).
 
+The scripts in this document use the [Accounts Payable (ap) database](../databases/create_db_ap.sql) available from the Free Downloads tab at [Murach’s MySQL (3rd Edition)](https://www.murach.com/shop/murach-s-mysql-3rd-edition-detail).
+
 How to Create Stored Procedures and Functions is covered in Murach, J. (2019). *Murach’s MySQL* (3rd ed. pp. 445-475). Mike Murach & Associates.
 
 ## 6.1 What is Stored Procedure?
