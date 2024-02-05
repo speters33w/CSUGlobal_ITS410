@@ -332,7 +332,7 @@ SELECT @@secure_file_priv;
 
 *Figure 4: Finding the path stored in @@secure_file_priv*
 
-In this case, data may only be imported from 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\'. You can copy the file there using the command prompt, or you may copy the file there using drag-and-drop using a GUI file manager. Note: C:\ProgramData\ is hidden by default on a Windows system, to see the directory in Explorer, from C:\, select 'View' from the menu in Explorer, then check the "Hidden items" checkbox.
+In this case, data may only be imported from 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\'. You can copy the file there using the command prompt, or you may copy the file there using drag-and-drop using a GUI file manager. Note: C:\ProgramData\ is hidden by default on a Windows system, to see the directory in Explorer; from C:\, select 'View' from the menu in Explorer, then check the "Hidden items" checkbox.
 
 Both LOAD DATA and mysqlimport may only import data from a directory specified in the `@@secure_file_priv` variable.
 

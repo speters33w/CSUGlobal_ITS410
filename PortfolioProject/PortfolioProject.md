@@ -4,7 +4,7 @@
 
 Using the My Guitar Shop database you installed in Module 1, develop the following queries. **SUBMIT A SCREENSHOT OF EACH STEP.**
 
-1. Write a SELECT statement that returns these column names and data from the products table:
+1. Write a [SELECT statement](./8-1_SELECT_product_name_list_price_discount_percent_discount_amount_discount_price_FROM_products.sql) that returns these column names and data from the products table:
 
    | Column Name      | Data                                                       |
    | ---------------- | ---------------------------------------------------------- |
@@ -14,9 +14,9 @@ Using the My Guitar Shop database you installed in Module 1, develop the followi
    | discount_amount  | A column that’s calculated from the previous two columns   |
    | discount_price   | A column that’s calculated from the previous three columns |
 
-   Round the discount_amount and discount_price columns to two decimal  places. Sort the result set by the discount_price column in descending  sequence. Use the LIMIT clause so the result set contains only the first five rows. Submit a screenshot.
+   Round the discount_amount and discount_price columns to two decimal  places. Sort the result set by the discount_price column in descending  sequence. Use the LIMIT clause so the result set contains only the first five rows. Submit a [screenshot](./8-1_SELECT_product_name_list_price_discount_percent_discount_amount_discount_price_FROM_products.png).
 
-2. Write a SELECT statement that returns these column names and data from the order_items table:
+2. Write a [SELECT statement](./8-2_SELECT_item_id_item_price_discount_amount_quantity_price_total_discount_total_item_total_FROM_order_items.sql) that returns these column names and data from the order_items table:
 
    | Column Name     | Data                                                         |
    | --------------- | ------------------------------------------------------------ |
@@ -28,7 +28,7 @@ Using the My Guitar Shop database you installed in Module 1, develop the followi
    | discount_total  | A column that’s calculated by multiplying the discount amount by the quantity |
    | item_total      | A column that’s calculated by  subtracting the discount amount from the item price and then multiplying by the quantity |
 
-   Only return rows where the item_total is greater than 500. Sort the  result set by the item_total column in descending sequence. Submit a  screenshot.
+   Only return rows where the item_total is greater than 500. Sort the  result set by the item_total column in descending sequence. Submit a  [screenshot](./8-2_SELECT_item_id_item_price_discount_amount_quantity_price_total_discount_total_item_total_FROM_order_items.png).
 
 3. Write a SELECT statement that returns the product_name and list_price columns from the products table.
 
