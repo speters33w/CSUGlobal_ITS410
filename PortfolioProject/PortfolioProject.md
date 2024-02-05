@@ -30,35 +30,33 @@ Using the My Guitar Shop database you installed in Module 1, develop the followi
 
    Only return rows where the item_total is greater than 500. Sort the  result set by the item_total column in descending sequence. Submit a  [screenshot](./8-2_SELECT_item_id_item_price_discount_amount_quantity_price_total_discount_total_item_total_FROM_order_items.png).
 
-3. Write a SELECT statement that returns the product_name and list_price columns from the products table.
+3. Write a [SELECT statement](./8-3_SELECT_product_name_list_price_FROM_products_WHERE_list_price_IN_SELECT_list_price_FROM_products.sql) that returns the product_name and list_price columns from the products table.
 
    Return one row for each product that has the same list price as another product.
 
    *Hint: Use a self-join to check that the product_id columns aren’t equal but the list_price columns are equal.*
 
-   Sort the result set by the product_name column. Submit a screenshot.
+   Sort the result set by the product_name column. Submit a [screenshot](./8-3_SELECT_product_name_list_price_FROM_products_WHERE_list_price_IN_SELECT_list_price_FROM_products.png).
 
-4. Write a SELECT statement that returns these two columns:
+4. Write a [SELECT statement](./8-4_SELECT_categories_category_name_products_product_id_WHERE_products_product_id_IS_NULL.sql) that returns these two columns:
 
    | Column        | From table                                         |
    | ------------- | -------------------------------------------------- |
    | category_name | The category_name column from the categories table |
    | product_id    | The product_id column from the products table      |
 
-   Return one row for each category that has never been used. *Hint: Use an outer join and only return rows where the product_id column contains a null value.* Submit a screenshot.
+   Return one row for each category that has never been used. *Hint: Use an outer join and only return rows where the product_id column contains a null value.* Submit a [screenshot](./8-4_SELECT_categories_category_name_products_product_id_WHERE_products_product_id_IS_NULL.png).
 
-5. Write an INSERT statement that adds this row to the customers table:
-
-   ​     
+5. Write an [INSERT statement](./8-5_INSERT_INTO_customers_Rick_Raven.sql) that adds this row to the customers table:
 
    | Column         | Data           |
-   | -------------- | -------------- |
+| -------------- | -------------- |
    | email_address: | rick@raven.com |
    | password:      | (empty string) |
    | first_name:    | Rick           |
    | last_name:     | Raven          |
-
-   Use a column list for this statement. Submit a screenshot.
+   
+   Use a column list for this statement. Submit a [screenshot](./8-5_INSERT_INTO_customers_Rick_Raven.png).
 
 6. Write a SELECT statement that answers this question: Which customers have ordered more than one product? Return these columns:
 
