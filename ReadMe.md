@@ -14,7 +14,7 @@ Interactive Lecture 1 Getting Started with MySQL Database
 
 Interactive Lecture 3 Retrieve Data from Multiple Tables
 
-Interactive Lecture 4 Insert, Update and Delete Table
+[Interactive Lecture 4](./InteractiveLecture4/interactive_lecture_4_notes.md) Insert, Update and Delete Table
 
 [Interactive Lecture 5](./InteractiveLecture5/interactive_lecture_5_notes.md) Grouping and Summarizing Data
 

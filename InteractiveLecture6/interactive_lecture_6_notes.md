@@ -83,7 +83,7 @@ DELIMITER ;
 
 Code source: Murach, J. (2019) *Murach's MySQL*, (3rd ed. Ch 15, p. 447).
 
-Recommended Video: Weinman, B. (2019, November 7). *[Creating a stored procedure - MySQL Video Tutorial](https://www.linkedin.com/learning/mysql-advanced-topics/creating-a-stored-procedure)*. LinkedIn. For this video, you will use the [album](../databases/album-mysql.sql) database. You will also need to run this script from Weinman, B. (2019, November 7). *[Creating a stored function - MySQL Video Tutorial](https://www.linkedin.com/learning/mysql-advanced-topics/creating-a-stored-function)* before running the list_albums procedure from the *Creating a Stored Procedure* video:
+Recommended Video: Weinman, B. (2019, November 7). *[Creating a stored procedure - MySQL Advanced Topics](https://www.linkedin.com/learning/mysql-advanced-topics/creating-a-stored-procedure)*. LinkedIn. For this video, you will use the [album](../databases/album-mysql.sql) database. You will also need to run this script from Weinman, B. (2019, November 7). *[Creating a stored function - MySQL Advanced Topics](https://www.linkedin.com/learning/mysql-advanced-topics/creating-a-stored-function)* before running the list_albums procedure from the *Creating a Stored Procedure* video:
 
 ```mysql
 USE album;
@@ -148,9 +148,9 @@ For a list of all the MySQL built-in functions see: W3Schools. (2020). *[MySQL F
 
 Recommended Videos on String Comparisons and Numeric Conversions:
 
-- Weinman, B. (2019, July 16). *[String comparisons - MySQL Video Tutorial](https://www.linkedin.com/learning/mysql-essential-training-2/string-comparisons)*. LinkedIn. Bill Weinman explains that MySQL has facilities for comparing strings in several manners. For this video, you will use the [world](../databases/world-mysql.sql) database.
+- Weinman, B. (2019, July 16). *[String comparisons - MySQL Essential Training](https://www.linkedin.com/learning/mysql-essential-training-2/string-comparisons)*. LinkedIn. Bill Weinman explains that MySQL has facilities for comparing strings in several manners. For this video, you will use the [world](../databases/world-mysql.sql) database.
 
-- Weinman, B. (2019, July 16). *[Numeric conversions - MySQL Video Tutorial](https://www.linkedin.com/learning/mysql-essential-training-2/numeric-conversions)*. LinkedIn. Bill Weinman explains that numeric values are normally expressed in  decimal base 10 using Arabic numerals. If you want to express values in  other systems, you may convert the number using one of these functions.
+- Weinman, B. (2019, July 16). *[Numeric conversions - MySQL Essential Training](https://www.linkedin.com/learning/mysql-essential-training-2/numeric-conversions)*. LinkedIn. Bill Weinman explains that numeric values are normally expressed in  decimal base 10 using Arabic numerals. If you want to express values in  other systems, you may convert the number using one of these functions.
 
    [SQL transcript of the video lessons](./string_comparisons_and_numeric_conversions.sql)
 
