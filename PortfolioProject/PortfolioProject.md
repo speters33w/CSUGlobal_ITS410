@@ -49,22 +49,23 @@ Using the My Guitar Shop database you installed in Module 1, develop the followi
 
 5. Write an [INSERT statement](./8-5_INSERT_INTO_customers_Rick_Raven.sql) that adds this row to the customers table:
 
-   | Column         | Data           |
-| -------------- | -------------- |
-   | email_address: | rick@raven.com |
-   | password:      | (empty string) |
-   | first_name:    | Rick           |
-   | last_name:     | Raven          |
-   
+   | Column        | Data           |
+   | ------------- | -------------- |
+   | email_address | rick@raven.com |
+   | password      | (empty string) |
+   | first_name    | Rick           |
+   | last_name     | Raven          |
+
+
    Use a column list for this statement. Submit a [screenshot](./8-5_INSERT_INTO_customers_Rick_Raven.png).
 
-6. Write a SELECT statement that answers this question: Which customers have ordered more than one product? Return these columns:
+6. Write a [SELECT statement](./8-6_SELECT_email_address_COUNT_DISTINCT_product_id.sql) that answers this question: Which customers have ordered more than one product? Return these columns:
 
    The email_address column from the customers table
 
    The count of distinct products from the customer’s orders
 
-   Sort the result set in ascending sequence by the email_address column. Submit a screenshot.
+   Sort the result set in ascending sequence by the email_address column. Submit a [screenshot](./8-6_SELECT_email_address_COUNT_DISTINCT_product_id.png).
 
 7. Write a SELECT statement that answers this question: What is the  total quantity purchased for each product within each category? Return  these columns
 

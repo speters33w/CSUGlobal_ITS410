@@ -5,5 +5,5 @@ SELECT item_id, item_price, discount_amount, quantity,
     (discount_amount * quantity) AS discount_total,
     item_total(item_id) AS item_total
         FROM order_items
-            WHERE item_total > 500
+            WHERE item_total(item_id) > 500
 ORDER BY item_total DESC;

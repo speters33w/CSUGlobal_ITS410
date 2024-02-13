@@ -1,3 +1,7 @@
+## Module 5: Discussion Forum
+
+Using the [database you installed from Module 1](../databases/my_guitar_shop.sql), provide an [example query](./Discussion_5_GROUP_BY_HAVING.sql) using both a group by clause and a having clause. Show no more than ten  rows of your query result. Discuss if the query you wrote can be  rewritten without those clauses.
+
 ## Module 5: Critical Thinking
 
 ### **Writing Queries**
