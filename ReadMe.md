@@ -12,7 +12,7 @@ Interactive Lecture 1 Getting Started with MySQL Database
 
 [Interactive Lecture 2](./InteractiveLecture2/interactive_lecture_2_scripts.sql) MySQL Data Types and Retrieving Data
 
-Interactive Lecture 3 Retrieve Data from Multiple Tables
+[Interactive Lecture 3](./InteractiveLecture3/interactive_lecture_3_notes.md) Retrieve Data from Multiple Tables
 
 [Interactive Lecture 4](./InteractiveLecture4/interactive_lecture_4_notes.md) Insert, Update and Delete Table
 
