@@ -1,3 +1,5 @@
+Sections [4.3](#4.3-update-existing-rows) and [4.4](#4.4-import-data) in this document use the [classicmodels database](../databases/classicmodels.sql) from [MySQLTutorial.org](https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/).
+
 ## 4.1a Create Database
 
 A full tutorial is available at [*MySQL CREATE DATABASE* | MySQL Tutorial](https://www.mysqltutorial.org/mysql-basics/mysql-create-database/).
@@ -106,10 +108,10 @@ PRIMARY KEY (col1, col2,…)
 
 Recommended Video: Moses, M. (2022, June 7). *[Create a Table - MySQL for Non-Programmers](https://www.linkedin.com/learning/mysql-for-non-programmers/create-a-table)*. LinkedIn.
 
-You may need to create the tutorial database before executing the queries in the video:
+You may need to create a blank tutorial database before executing the queries in the video:
 
 ```mysql
-CREATE DATABASE IF NOT EXISTS tutorial;
+CREATE DATABASE IF NOT EXISTS tutorial DEFAULT CHARACTER SET utf8;
 ```
 
  [SQL transcript of the video lesson](./Moses_02_04_CreateTable.sql)
@@ -429,7 +431,7 @@ The `--ignore-lines=1` flag indicates that the first line of the CSV file is a h
 
 The `--user=root -p` statement will import the data as the root user and require a password. `classicmodels` is the database to import the data into. `'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/'` is the directory where the csv file is located, in this case the default secure_file_priv directory of a Windows OS. `discounts.csv` is the name of the file to be imported. IMPORTANT: MySQL determines the table to import the data into based on the filename, so it will import the data from the CSV into the discounts table. Note: The number of columns in the CSV file must match the number of columns in the database table. All blank fields in the CSV file must read `\N` to denote a null value.
 
-You may test the import with a SELECT statement:
+Finally, test your import  by showing the contents of the discounts table.
 
 ```mysql
 SELECT * FROM discounts;
@@ -440,5 +442,65 @@ SELECT * FROM discounts;
 *Figure 7. Testing a mysqlimport import on a Windows system.*
 
 ### Using MySQL Workbench
+
+MySQL workbench provides a tool to import data into a table.
+
+If you have not already done so, create the discounts table in the classicmodels database, and drop the existing table to clear it for this section.
+
+```mysql
+USE classicmodels;
+
+DROP TABLE IF EXISTS discounts;
+
+CREATE TABLE discounts (
+    id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    expired_date DATE NOT NULL,
+    amount DECIMAL(10, 2 ) NULL,
+    PRIMARY KEY (id)
+);
+```
+
+Open the discounts table:
+
+![](https://www.mysqltutorial.org/wp-content/uploads/2023/12/step-1.png)
+
+*MySQL Tutorial, [https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/](https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/)*
+*Figure 8: selecting the discounts table in the classicmodels database*
+
+Click the import button:
+
+![](https://www.mysqltutorial.org/wp-content/uploads/2023/12/step-2.png)
+
+Select the path to the CSV file and click the Next button:
+
+![](./step-3.png)
+
+*MySQL Tutorial, [https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/](https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/)*
+*Figure 9: selecting the discounts.csv file to import to the classicmodels database*
+
+Select the destination table: classicmodels.discounts in this case. 
+
+![](https://www.mysqltutorial.org/wp-content/uploads/2023/12/step-4.png)
+
+*MySQL Tutorial, [https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/](https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/)*
+*Figure 10: selecting the destination table in the classicmodels database*
+
+![](https://www.mysqltutorial.org/wp-content/uploads/2023/12/step-5.png)
+
+*MySQL Tutorial, [https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/](https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/)*
+*Figure 11: configuring the import settings for the classicmodels.discounts table*.
+
+For the next screens of the import wizard, review the steps that the Workbench will do and click the Next button.
+
+Finally, show the contents of the discounts table:
+
+```mysql
+SELECT * FROM discounts;
+```
+
+![](C:\OneDrive\SQL\ITS410\InteractiveLecture4\step-9.png)
+
+*Figure 12 Contents of the classicmodels.discounts table after importing [discounts.csv](./discounts.csv).*
 
 Recommended Video: Wheeler, B. (2020, August 18). *[Load Bulk Data - Learning MySQL Development](https://www.linkedin.com/learning/learning-mysql-development-2/load-bulk-data)*. LinkedIn. For this video, you will use the [movies_basic](../databases/movies_basic.sql) database and the data from [movies_dataset_basic.csv](./movies_dataset_basic.csv).

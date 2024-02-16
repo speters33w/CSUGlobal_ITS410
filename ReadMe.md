@@ -10,7 +10,7 @@ Some of the Interactive Lecture scripts in this repository require using the Oct
 
 Interactive Lecture 1 Getting Started with MySQL Database
 
-[Interactive Lecture 2](./InteractiveLecture2/interactive_lecture_2_scripts.sql) MySQL Data Types and Retrieving Data
+[Interactive Lecture 2](./InteractiveLecture2/interactive_lecture_2_notes.md) MySQL Data Types and Retrieving Data
 
 [Interactive Lecture 3](./InteractiveLecture3/interactive_lecture_3_notes.md) Retrieve Data from Multiple Tables
 

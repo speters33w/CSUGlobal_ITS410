@@ -1,3 +1,11 @@
+Most of the scripts in this document use the [classicmodels database](../databases/classicmodels.sql) from [MySQLTutorial.org](https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/); 
+
+[Section 3.2](#3.2-overview-of-table-joins) uses a test database you will create or modify.
+
+[Section 3.4.3](#3.-cross-join) uses the salesdb database you will create.
+
+Some queries from the classicmodels database may also be executed using [MySQLLive](https://www.mysqltutorial.org/tryit/) from MySQLTutorial.org.
+
 ## 3.1 MySQL Table and Column Aliases
 
 A full tutorial is available at [*MySQL Aliases* | MySQL Tutorial](https://www.mysqltutorial.org/mysql-basics/mysql-alias/).
@@ -81,7 +89,7 @@ Most queries are formulated using multiple tables. Queries that utilize multiple
 One should note that Microsoft SQL Server supports additional types of table joins. The following SQL examples demonstrate each type of join. You should try these in MySQL WorkBench. First, create two arbitrary tables that share a common column.
 
 ```mysql
-CREATE DATABASE IF NOT EXISTS test;
+CREATE DATABASE IF NOT EXISTS test DEFAULT CHARACTER SET utf8;
 USE test;
 
 DROP TABLE IF EXISTS t1;
@@ -273,7 +281,7 @@ The SQL *LEFT JOIN* clause matches rows in one table with rows in other tables. 
 SELECT table1.column1, table1.column2, table2.column1, table2.column2
 FROM table1
 LEFT JOIN table2
-ON table1.column1 = table2.column1
+    ON table1.column1 = table2.column1
 ```
 
 In this query, if a row from the left table, which is table1, matches a row from the right table, which is table2, based on the matching condition *table1.column1 = table2.column1* then that row containing values from the selection columns will be included in the result set. If the row in the left table does not match with the row in the right table, then the row consists of columns from the selection but the data in the rows will be the values in the tuple (table1.column1, table1.column2, NULL, NULL); that is, a null value will appear in each right table column of the result set. A left join result set consists of rows from both left and right tables that are matched plus rows from the left table that are not matched.
@@ -318,7 +326,7 @@ SELECT customers.customerNumber,
 FROM customers
 LEFT JOIN orders
     ON customers.customerNumber = orders.customerNumber
-    WHERE orderNumber IS NULL;
+        WHERE orderNumber IS NULL;
 ```
 
 ### **2. Right Join**
@@ -500,8 +508,7 @@ USE classicmodels;
 SELECT CONCAT (m.lastname, ', ', m.firstname) AS 'Manager',
        CONCAT (e.lastname, ', ', e.firstname) AS 'Direct report'
 FROM employees e
-INNER JOIN  employees m
-ON m.employeeNumber = e.reportsto
+INNER JOIN  employees m ON m.employeeNumber = e.reportsto
 ORDER BY manager;
 ```
 
@@ -512,8 +519,7 @@ A query to do this could be the following self join query:
 ```mysql
 SELECT c1.city, c1.customerName, c2.customerName
 FROM customers c1
-INNER JOIN customers c2
-ON  c1.city = c2.city
-AND c1.customername > c2.customerName
+INNER JOIN customers c2 ON  c1.city = c2.city
+    AND c1.customername > c2.customerName
 ORDER BY c1.city;
 ```
