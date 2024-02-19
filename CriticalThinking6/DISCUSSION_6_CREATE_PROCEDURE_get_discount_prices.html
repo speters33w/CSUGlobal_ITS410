@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body lang="en-US" dir="ltr">
+<pre><font color="#0033b3">USE </font><font color="#000000">my_guitar_shop</font><font color="#080808">;</font>
+
+<font color="#0033b3">DELIMITER </font><font color="#080808">// </font>
+
+<font color="#0033b3">CREATE PROCEDURE </font><font color="#00627a">get_discount_prices</font><font color="#080808">( </font>
+<font color="#0033b3">    IN </font><font color="#000000">promotional_discount_percent </font><font color="#0033b3">decimal</font><font color="#080808">(</font><font color="#1750eb">3</font><font color="#080808">,</font><font color="#1750eb">1</font><font color="#080808">) 
+) </font>
+<font color="#0033b3">BEGIN
+    SELECT </font><font color="#871094">product_name </font><font color="#0033b3">as </font><font color="#000000">`The axe you always wanted`</font><font color="#080808">, </font>
+<font color="#871094">           list_price </font><font color="#0033b3">as </font><font color="#000000">`Their price`</font><font color="#080808">, </font>
+<font color="#00627a">           promotional_discount</font><font color="#080808">(</font><font color="#871094">product_id</font><font color="#080808">, </font>
+<font color="#000000">               promotional_discount_percent</font><font color="#080808">) </font><font color="#0033b3">as </font><font color="#000000">`Promotional Price`</font>
+<font color="#0033b3">FROM </font><font color="#000000">products </font>
+<font color="#0033b3">ORDER BY </font><font color="#871094">list_price </font><font color="#0033b3">DESC</font><font color="#080808">;</font>
+<font color="#0033b3">END </font><font color="#080808">//</font>
+<font color="#0033b3">DELIMITER </font><font color="#080808">;
+</font>
+<font color="#0033b3">SHOW PROCEDURE STATUS WHERE </font><font color="#871094">db </font><font color="#080808">= </font><font color="#067d17">'my_guitar_shop'</font><font color="#080808">;
+</font>
+<font color="#0033b3">CALL </font><font color="#00627a">get_discount_prices</font><font color="#080808">(</font><font color="#1750eb">5.0</font><font color="#080808">);</font>
+</pre>
+</body>
+</html>

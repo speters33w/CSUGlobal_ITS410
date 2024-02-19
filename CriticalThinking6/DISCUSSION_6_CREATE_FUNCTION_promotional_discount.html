@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body lang="en-US" dir="ltr"><p style="border: none; padding: 0in">
+<pre><font color="#0033b3">USE </font><font color="#000000">my_guitar_shop</font><font color="#080808">;</font>
+
+<font color="#0033b3">DROP FUNCTION IF EXISTS </font><font color="#00627a">promotional_discount</font><font color="#080808">;</font>
+
+<font color="#7b3d00"># Use // to end the query instead of ;</font>
+<font color="#0033b3">DELIMITER </font><font color="#080808">//</font>
+
+<font color="#7b3d00"># Create the function and its arguments.</font>
+<font color="#0033b3">CREATE FUNCTION </font><font color="#00627a">promotional_discount</font><font color="#080808">(</font>
+<font color="#000000">product_id </font><font color="#0033b3">int</font><font color="#080808">,</font>
+<font color="#000000">promotional_discount_percent </font><font color="#0033b3">decimal</font><font color="#080808">(</font><font color="#1750eb">3</font><font color="#080808">,</font><font color="#1750eb">1</font><font color="#080808">)
+)</font>
+
+<font color="#7b3d00"># Define the return type.</font>
+<font color="#0033b3">RETURNS decimal</font><font color="#080808">(</font><font color="#1750eb">10</font><font color="#080808">,</font><font color="#1750eb">2</font><font color="#080808">)</font>
+
+<font color="#7b3d00"># The function will always return the same values
+# with the same input.</font>
+<font color="#0033b3">DETERMINISTIC</font>
+
+<font color="#7b3d00"># Begin the function</font>
+<font color="#0033b3">BEGIN</font>
+<font color="#7b3d00">    # Declare variables.
+    # discount_price is the price with the initial discount applied.
+    # promotional_discount_price is price with the additional discount applied, 
+    # and is the return value.</font>
+<font color="#0033b3">    DECLARE </font><font color="#000000">discount_price </font><font color="#0033b3">decimal</font><font color="#080808">(</font><font color="#1750eb">10</font><font color="#080808">,</font><font color="#1750eb">2</font><font color="#080808">);</font>
+<font color="#0033b3">    DECLARE </font><font color="#000000">promotional_discount_price </font><font color="#0033b3">decimal</font><font color="#080808">(</font><font color="#1750eb">10</font><font color="#080808">,</font><font color="#1750eb">2</font><font color="#080808">);</font>
+
+<font color="#7b3d00">    # Do the math for the operation.
+    # Note the promotional discount is based on the list price.</font>
+<font color="#0033b3">    SELECT</font><font color="#080808">(</font><font color="#871094">list_price </font><font color="#080808">- (</font><font color="#871094">list_price </font><font color="#080808">* </font><font color="#871094">discount_percent </font><font color="#080808">* </font><font color="#1750eb">.01</font><font color="#080808">)) </font>
+<font color="#0033b3">    INTO </font><font color="#000000">discount_price </font>
+<font color="#0033b3">    FROM </font><font color="#000000">products </font>
+<font color="#0033b3">        WHERE </font><font color="#000000">products</font><font color="#080808">.</font><font color="#871094">product_id </font><font color="#080808">= </font><font color="#000000">product_id</font><font color="#080808">;</font>
+<font color="#0033b3">    SELECT </font><font color="#080808">(</font><font color="#000000">discount_price </font><font color="#080808">- (</font><font color="#871094">list_price </font><font color="#080808">* </font><font color="#000000">promotional_discount_percent </font><font color="#080808">* </font><font color="#1750eb">.01</font><font color="#080808">)) </font>
+<font color="#0033b3">    INTO </font><font color="#000000">promotional_discount_price </font>
+<font color="#0033b3">    FROM </font><font color="#000000">products </font>
+<font color="#0033b3">        WHERE </font><font color="#000000">products</font><font color="#080808">.</font><font color="#871094">product_id </font><font color="#080808">= </font><font color="#000000">product_id</font><font color="#080808">;</font>
+
+<font color="#7b3d00">    # Return the calculated value.</font>
+<font color="#0033b3">    RETURN </font><font color="#000000">promotional_discount_price</font><font color="#080808">;</font>
+<font color="#0033b3">END </font><font color="#080808">//</font>
+
+# </font><font color="#7b3d00">Make sure the database took the function</font><font color="#7b3d00">.</font>
+<font color="#0033b3">SHOW FUNCTION STATUS WHERE </font><font color="#780373">db </font><font color="#080808">= '</font><font color="#1e6a39">my_guitar_shop</font><font color="#080808">';</font>
+</pre>
+</body>
+</html>

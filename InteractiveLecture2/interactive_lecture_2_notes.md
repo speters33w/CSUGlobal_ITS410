@@ -213,7 +213,8 @@ MySQL stores dates and times in standard SQL  format. Standard SQL format for da
 
 SQL format has the most significant  parts to the left and the least significant parts to the right. This  makes sorting and searching much easier, so you may even find it useful  in other contexts such as  in spreadsheets and file names. MySQL has  comprehensive time zone support that's based on the intensive time zone  database maintained by the internet assigned numbers authority (IANA).  The IANA time zone database is a standard set of international time zone rules for names and locations.
 
-// todo TEST ALL AFTER THIS
+Aaron Francis has an excellent blog post discussing MySQL date and time formats on PlanetScale. 
+See Francis, A. (2023, June 22). *[Datetimes versus timestamps in MySQL](https://planetscale.com/blog/datetimes-vs-timestamps-in-mysql)*. PlanetScale. 
 
 Run the following SQL statements and view the selected data from tblItems.
 
