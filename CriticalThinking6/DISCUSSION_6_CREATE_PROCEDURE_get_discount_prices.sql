@@ -1,5 +1,7 @@
 USE my_guitar_shop;
 
+DROP PROCEDURE IF EXISTS discount_prices;
+
 DELIMITER //
 
 CREATE PROCEDURE get_discount_prices(

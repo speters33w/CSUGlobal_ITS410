@@ -1,0 +1,13 @@
+address_id,customer_id,line1,line2,city,state,zip_code,phone,disabled
+1,1,"100 East Ridgewood Ave.",,Paramus,NJ,07652,201-653-4472,0
+2,1,"21 Rosewood Rd.",,"Woodcliff Lake",NJ,07677,201-653-4472,0
+3,2,"16285 Wendell St.",,Omaha,NE,68135,402-896-2576,0
+4,3,"19270 NW Cornell Rd.",,Beaverton,OR,97006,503-654-1291,0
+5,4,"186 Vermont St.","Apt. 2","San Francisco",CA,94110,415-292-6651,0
+6,4,"1374 46th Ave.",,"San Francisco",CA,94129,415-292-6651,0
+7,5,"6982 Palm Ave.",,Fresno,CA,93711,559-431-2398,0
+8,6,"23 Mountain View St.",,Denver,CO,80208,303-912-3852,0
+9,7,"7361 N. 41st St.","Apt. B","New York",NY,10012,212-335-2093,0
+10,7,"3829 Broadway Ave.","Suite 2","New York",NY,10012,212-239-1208,0
+11,8,"2381 Buena Vista St.",,"Los Angeles",CA,90023,213-772-5033,0
+12,8,"291 W. Hollywood Blvd.",,"Los Angeles",CA,90024,213-391-2938,0

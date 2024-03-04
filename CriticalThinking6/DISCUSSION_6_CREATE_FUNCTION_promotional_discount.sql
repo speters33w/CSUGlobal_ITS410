@@ -21,8 +21,9 @@ DETERMINISTIC
 # Begin the function
 BEGIN
     # Declare variables.
-    # discount_price is the price with the initial discount applied
-    # promotional_discount_price is the return value.
+    # discount_price is the price with the initial discount applied.
+    # promotional_discount_price is the price with the additional discount applied
+    # and is the return value.
     DECLARE discount_price decimal(10,2);
     DECLARE promotional_discount_price decimal(10,2);
 

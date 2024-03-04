@@ -20,7 +20,7 @@ Interactive Lecture 1 Getting Started with MySQL Database
 
 [Interactive Lecture 6](./InteractiveLecture6/interactive_lecture_6_notes.md) Stored Procedures and Functions
 
-Interactive Lecture 7 Database Tuning and Security
+[Interactive Lecture 7](./InteractiveLecture7/interactive_lecture_7_notes.md) Database Tuning and Security
 
 Interactive Lecture 8 Backup and Recovery
 

@@ -2,9 +2,9 @@
 
 Discuss the difference between stored procedure and functions. Give an example of when you would use one instead of the other.
 
-[Stored function](./DISCUSSION_6_CREATE_FUNCTION_promotional_discount.html) with [screenshot](./DISCUSSION_6_CREATE_FUNCTION_promotional_discount.png)
+[Stored function](./DISCUSSION_6_CREATE_FUNCTION_promotional_discount.sql) with [screenshot](./DISCUSSION_6_CREATE_FUNCTION_promotional_discount.png)
 
-[Stored procedure](./DISCUSSION_6_CREATE_PROCEDURE_get_discount_prices.html) with [screenshot](./DISCUSSION_6_CREATE_PROCEDURE_get_discount_prices.png)
+[Stored procedure](./DISCUSSION_6_CREATE_PROCEDURE_get_discount_prices.sql) with [screenshot](./DISCUSSION_6_CREATE_PROCEDURE_get_discount_prices.png)
 
 ## Module 6: Critical Thinking
 
