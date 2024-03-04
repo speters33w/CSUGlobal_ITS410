@@ -88,7 +88,7 @@ Inside the data directory are separate directories for each of the databases tha
 
 This Windows batch file [[backupmysql.bat](./backupmysql.bat)] will create a physical backup for your MySQL databases in a folder on the desktop. This batch file requires the [7-Zip archive utility](https://www.7-zip.org/download.html) to be installed. The batch file needs to be executed using the command line (CMD) in administrator mode. It will not run in PowerShell.
 
-To run the batch file, cd to the directory the file is in and enter:
+To run the batch file, run CMD as administrator, cd to the directory the file is in and enter:
 
 ```
 backupmysql.bat root <type the root password>
@@ -119,24 +119,22 @@ for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "d
     set "DD=%dt:~6,2%"
     set "hh=%dt:~8,2%"
     set "min=%dt:~10,2%"
-)
 
 :: Identify the backup directory.
 set dirName=%YYYY%%MM%%DD%_%hh%%min%
 
 :: Create the backup directory.
-if not exist %backupDir%\%dirName%\ (
-    mkdir %backupDir%\%dirName%
-)
+if not exist %backupDir%\%dirName%\ mkdir %backupDir%\%dirName%
 
 :: switch to the "data" folder.
 pushd %mysqlDataDir%
 :: iterate over the folder structure in the "data" folder to get the databases.
 for /d %%f in (*) do (
-    :: Save the databases to the backup directory.
+    :: Save the database file to the backup directory.
     %mysqldump% --host="localhost" --user=%dbUser% --single-transaction --add-drop-table --databases --password=%dbPassword%  %%f > %backupDir%\%dirName%\%%f.sql
-    :: Compress the backup files to gunzip files.
+    :: Compress the backup file to a gunzip file.
     %zip% a -tzip %backupDir%\%dirName%\%%f.sql.gz %backupDir%\%dirName%\%%f.sql
+    :: Delete the uncompressed file.
     del %backupDir%\%dirName%\%%f.sql
 )
 

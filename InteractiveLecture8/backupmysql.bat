@@ -1,4 +1,10 @@
 @echo off
+
+:: To run the batch file, run CMD as administrator, 
+:: cd to the directory the file is in and enter
+:: backupmysql.bat <type the user> <type the user password>
+:: 7-Zip installed in default location is a dependency.
+
 :: Use command line arguments as login and password.
 set dbUser=%1
 set dbPassword=%2
@@ -20,15 +26,13 @@ for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "d
     set "DD=%dt:~6,2%"
     set "hh=%dt:~8,2%"
     set "min=%dt:~10,2%"
-)
 
 :: Identify the backup directory.
 set dirName=%YYYY%%MM%%DD%_%hh%%min%
 
 :: Create the backup directory.
-if not exist %backupDir%\%dirName%\ (
-    mkdir %backupDir%\%dirName%
-)
+if not exist %backupDir%\%dirName%\ mkdir %backupDir%\%dirName%
+
 
 :: switch to the "data" folder.
 pushd %mysqlDataDir%
