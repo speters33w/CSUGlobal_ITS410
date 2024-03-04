@@ -22,7 +22,7 @@ Interactive Lecture 1 Getting Started with MySQL Database
 
 [Interactive Lecture 7](./InteractiveLecture7/interactive_lecture_7_notes.md) Database Tuning and Security
 
-Interactive Lecture 8 Backup and Recovery
+[Interactive Lecture 8](./InteractiveLecture8/interactive_lecture_8_notes.md) Backup and Recovery
 
 
 
