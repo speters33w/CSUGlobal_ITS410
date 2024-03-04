@@ -2,7 +2,7 @@
 
 ### **Part 2: Queries**
 
-Using the My Guitar Shop database you installed in Module 1, develop the following queries. **SUBMIT A SCREENSHOT OF EACH STEP.**
+Using the [my_guitar_shop database](../CriticalThinking1/1-1_create_my_guitar_shop.sql) you installed in Module 1, develop the following queries. **SUBMIT A SCREENSHOT OF EACH STEP.**
 
 1. Write a [SELECT statement](./8-1_SELECT_product_name_list_price_discount_percent_discount_amount_discount_price_FROM_products.sql) that returns these column names and data from the products table:
 
@@ -67,7 +67,7 @@ Using the My Guitar Shop database you installed in Module 1, develop the followi
 
    Sort the result set in ascending sequence by the email_address column. Submit a [screenshot](./8-6_SELECT_email_address_COUNT_DISTINCT_product_id.png).
 
-7. Write a SELECT statement that answers this question: What is the total quantity purchased for each product within each category? Return these columns
+7. Write a [SELECT statement](./8-7_SELECT_category_name_product_name_SUM_quantity.sql) that answers this question: What is the total quantity purchased for each product within each category? Return these columns:
 
    The category_name column from the category table
 
@@ -75,9 +75,11 @@ Using the My Guitar Shop database you installed in Module 1, develop the followi
 
    The total quantity purchased for each product with orders in the order_items table
 
+   [Submit a [screenshot](./8-7a_SELECT_category_name_product_name_SUM_quantity.png)]
+
    Use the WITH ROLLUP operator to include rows that give a summary for each category name as well as a row that gives the grand total.
 
-   Use the IF and GROUPING functions to replace null values in the category_name and product_name columns with literal values if they’re for summary rows. Submit a screenshot.
+   Use the IF and GROUPING functions to replace null values in the category_name and product_name columns with literal values if they’re for summary rows. Submit a [screenshot](./8-7b_SELECT_category_name_SUM_quantity_from_total_quantity_purchased.png).
 
 8. Write and execute a [script that creates a user](./8-8b_CREATE_USER_GRANT_order_manager.sql) with a username using your firstname initial and lastname and password of your choosing. This user should be able to connect to MySQL from any computer.
 
@@ -91,6 +93,7 @@ Using the My Guitar Shop database you installed in Module 1, develop the followi
 
 All the screenshots should show current date. 
 
-Submit part 1 and part 2 (your query and query results screenshots) in a Word file.
+Submit part 1 and [part 2](./PortfolioProjectQueries.md) (your query and query results screenshots) in a [Word file](./PortfolioProjectQueries.pdf).
 
 *The Portfolio Project is exempt from the University Late Policy. It is due by Sunday at 11:59 p.m. of the week it is assigned.*
+
