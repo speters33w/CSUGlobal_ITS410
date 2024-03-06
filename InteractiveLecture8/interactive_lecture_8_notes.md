@@ -4,6 +4,8 @@
 
 ### **mysqldump**
 
+A tutorial is available at [*MySQL Backup Utility: mysqldump* | MySQL Tutorial](https://www.mysqltutorial.org/mysql-administration/mysqldump/).
+
 The command-line utility mysqldump that is included with MySQL may be used to create logical backups. The program communicates with the server to retrieve data and write out various statements capable of rebuilding the database. To make sure no changes are made during the backup process, you will need to lock the tables with a “read lock” which makes the database read-only. Follow these steps to make a logical backup of the classicmodels database using mysqldump:
 
 - In the command-line client, make sure the classicmodels database is the active database and issue a FLUSH TABLES statement so any pending operations are completed and the lock is established. The command syntax is:
@@ -88,7 +90,7 @@ Inside the data directory are separate directories for each of the databases tha
 
 This Windows batch file [[backupmysql.bat](./backupmysql.bat)] will create a physical backup for your MySQL databases in a folder on the desktop. This batch file requires the [7-Zip archive utility](https://www.7-zip.org/download.html) to be installed. The batch file needs to be executed using the command line (CMD) in administrator mode. It will not run in PowerShell.
 
-To run the batch file, run CMD as administrator, cd to the directory the file is in and enter:
+To run the batch file, run CMD as administrator, cd to the directory the batch file is in and enter:
 
 ```
 backupmysql.bat root <type the root password>
